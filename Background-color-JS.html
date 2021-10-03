@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>Color pickle</title>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			padding: 0px;
+			font-family: 'Stick No Bills', sans-serif;
+		}
+		.mainBtn{
+  			cursor:pointer; 
+  			color: black;
+  			font-size: 24px;
+  			border: 2px solid black;
+  			border-radius: 5px;
+  			padding: 5px 15px;
+  			font-family: 'Stick No Bills', sans-serif;
+		}
+		#clickBtn:hover{
+			background-color: black;
+			color: white;
+		}
+		#bgd{
+			background-color: black;
+			color: white;
+			margin-bottom: 50px;
+			font-size: 40px;
+			font-weight: bold;
+			border-radius: 5px;
+			padding: 5px 15px;
+		}
+		.container{
+			margin: 0;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			text-align: center;
+		}
+		nav{
+			width: 100%;
+			background-color: white;
+			box-shadow: 3px 3px 10px 3px #404040;
+			float: left;
+			padding: 15px 0px;
+		}
+		.navCont{
+			width: 570px;
+			margin: 0 auto;
+		}
+		.navLeft{
+			float: left;
+			text-align: left;
+		}
+		.navRight{
+			float: right;
+			text-align: right;
+		}
+		nav a{
+			font-size: 20px;
+			font-weight: bold;
+			color: #089c8d;
+			text-decoration: none;
+		}
+		.navRight a{
+			margin-left: 20px;
+		}
+	</style>
+</head>
+<body id="body">
+	<nav> 
+		<div class="navCont">
+			<div class="navLeft">
+				<a href="#">Color Flipper</a>
+			</div>
+			<div class="navRight">
+				<a href="#">Simple</a>
+				<a href="#">Hex</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div id="bgd">Background Color: <span id="colorNum">rgb(255, 255, 255)</span></div>
+		<button class="mainBtn" id="clickBtn" onclick="changeColor()">CLICK ME</button>
+	</div>
+	<script type="text/javascript">
+		function numGen(){
+			return Math.floor(Math.random() * 256);
+		}
+		function changeColor(){
+			var r = numGen();
+    		var g = numGen();
+    		var b = numGen();
+    		var clickButton = document.getElementById("clickBtn");
+    		var rgb = `rgb(${r},${g},${b})`;
+
+			document.getElementById("body").style.backgroundColor = rgb;
+			clickButton.style.backgroundColor = rgb;
+			clickButton.style.borderColor = "white";
+			document.getElementById("colorNum").innerHTML = rgb;
+		}
+	</script>
+
+</body>
+</html>
